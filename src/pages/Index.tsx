@@ -87,8 +87,8 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="relative h-screen flex items-end justify-center overflow-hidden pb-20">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <img 
           src="https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg" 
           alt="Hero" 
