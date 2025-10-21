@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ url: string; caption: string; date: string } | null>(null);
 
   const sections = [
     {
@@ -137,7 +138,11 @@ const Index = () => {
                     <Card
                       key={imgIndex}
                       className="group overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                      onClick={() => setActiveSection(section.id)}
+                      onClick={() => {
+                        if (typeof image !== 'string') {
+                          setSelectedImage(image);
+                        }
+                      }}
                     >
                       <CardContent className="p-0 relative">
                         <div className="aspect-[4/3] overflow-hidden">
@@ -193,6 +198,39 @@ const Index = () => {
           <p className="text-foreground/60">© 2025 Наша Семья. Все воспоминания бесценны.</p>
         </div>
       </footer>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full w-12 h-12"
+            onClick={() => setSelectedImage(null)}
+          >
+            <Icon name="X" size={28} />
+          </Button>
+          
+          <div className="max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={selectedImage.url}
+              alt={selectedImage.caption}
+              className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+            />
+            <div className="text-center mt-6 text-white">
+              <h3 className="text-2xl md:text-3xl font-heading font-bold mb-2">
+                {selectedImage.caption}
+              </h3>
+              <p className="text-lg text-white/80 flex items-center justify-center gap-2">
+                <Icon name="Calendar" size={20} />
+                {selectedImage.date}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
