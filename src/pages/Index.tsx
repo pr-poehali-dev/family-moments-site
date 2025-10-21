@@ -91,7 +91,7 @@ const Index = () => {
         <img 
           src="https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg" 
           alt="Hero" 
-          className="absolute inset-0 w-full h-full object-cover object-top"
+          className="absolute inset-0 w-full h-full object-cover object-center md:object-[center_30%]"
         />
         
         <div className="relative z-10 text-center px-4 pb-12 md:pb-16 animate-fade-in">
