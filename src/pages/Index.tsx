@@ -13,8 +13,8 @@ const Index = () => {
       icon: 'Plane',
       color: 'bg-gradient-to-br from-primary to-pink-400',
       images: [
-        'https://cdn.poehali.dev/files/b6342490-bf2e-45ea-93d4-0eb30a8ee9dd.jpg',
-        'https://cdn.poehali.dev/files/5e7cec88-5694-4254-bd15-de85c0a01f13.jpg',
+        { url: 'https://cdn.poehali.dev/files/b6342490-bf2e-45ea-93d4-0eb30a8ee9dd.jpg', caption: 'Морской собор, Кронштадт', date: 'Апрель 2024' },
+        { url: 'https://cdn.poehali.dev/files/5e7cec88-5694-4254-bd15-de85c0a01f13.jpg', caption: 'Парк «Остров фортов»', date: 'Апрель 2024' },
       ],
       description: 'Наши приключения по всему миру',
     },
@@ -24,8 +24,8 @@ const Index = () => {
       icon: 'Heart',
       color: 'bg-gradient-to-br from-secondary to-cyan-400',
       images: [
-        'https://cdn.poehali.dev/files/ff0da5eb-5b42-4836-ae39-59dd6ee0ed96.jpg',
-        'https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg',
+        { url: 'https://cdn.poehali.dev/files/ff0da5eb-5b42-4836-ae39-59dd6ee0ed96.jpg', caption: 'Кафе «Восточный экспресс»', date: 'Февраль 2024' },
+        { url: 'https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg', caption: 'Первое свидание в новом году', date: 'Сентябрь 2024' },
       ],
       description: 'Особенные моменты нашей жизни',
     },
@@ -35,8 +35,8 @@ const Index = () => {
       icon: 'Calendar',
       color: 'bg-gradient-to-br from-accent to-yellow-300',
       images: [
-        'https://cdn.poehali.dev/files/07c6ea3c-6600-4d7b-a1de-308745ae5d2d.jpg',
-        'https://cdn.poehali.dev/files/31f1fc5c-4544-4760-88b2-8aa754398233.jpg',
+        { url: 'https://cdn.poehali.dev/files/07c6ea3c-6600-4d7b-a1de-308745ae5d2d.jpg', caption: 'Концерт в филармонии', date: 'Март 2024' },
+        { url: 'https://cdn.poehali.dev/files/31f1fc5c-4544-4760-88b2-8aa754398233.jpg', caption: 'Ужин с семьёй', date: 'Июль 2024' },
       ],
       description: 'Важные даты и праздники',
     },
@@ -142,15 +142,25 @@ const Index = () => {
                       <CardContent className="p-0 relative">
                         <div className="aspect-[4/3] overflow-hidden">
                           <img
-                            src={image}
-                            alt={`${section.title} ${imgIndex + 1}`}
+                            src={typeof image === 'string' ? image : image.url}
+                            alt={typeof image === 'string' ? `${section.title} ${imgIndex + 1}` : image.caption}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                           <div className="text-white">
-                            <p className="font-heading font-semibold text-lg">Смотреть больше</p>
-                            <Icon name="Plus" size={24} className="mt-2" />
+                            {typeof image !== 'string' && (
+                              <>
+                                <p className="font-heading font-semibold text-lg mb-1">{image.caption}</p>
+                                <p className="text-sm text-white/80 flex items-center gap-2">
+                                  <Icon name="Calendar" size={16} />
+                                  {image.date}
+                                </p>
+                              </>
+                            )}
+                            {typeof image === 'string' && (
+                              <p className="font-heading font-semibold text-lg">Смотреть больше</p>
+                            )}
                           </div>
                         </div>
                       </CardContent>
