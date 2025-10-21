@@ -50,12 +50,12 @@ const Index = () => {
       description: 'Наши увлечения и творчество',
     },
     {
-      id: 'wedding',
-      title: 'Свадьба',
-      icon: 'Sparkles',
-      color: 'bg-gradient-to-br from-pink-300 to-rose-400',
+      id: 'home',
+      title: 'Дом',
+      icon: 'Home',
+      color: 'bg-gradient-to-br from-green-400 to-emerald-500',
       images: [],
-      description: 'Самый важный день в нашей жизни',
+      description: 'Наше уютное гнёздышко',
     },
   ];
 
