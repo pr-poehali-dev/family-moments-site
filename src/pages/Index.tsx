@@ -13,8 +13,8 @@ const Index = () => {
       icon: 'Plane',
       color: 'bg-gradient-to-br from-primary to-pink-400',
       images: [
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/11571744-aff8-42a3-ab63-79126c6d5e81.jpg',
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/ce16db62-8186-46a6-af0b-6f6e8db67186.jpg',
+        'https://cdn.poehali.dev/files/b6342490-bf2e-45ea-93d4-0eb30a8ee9dd.jpg',
+        'https://cdn.poehali.dev/files/5e7cec88-5694-4254-bd15-de85c0a01f13.jpg',
       ],
       description: 'Наши приключения по всему миру',
     },
@@ -24,7 +24,8 @@ const Index = () => {
       icon: 'Heart',
       color: 'bg-gradient-to-br from-secondary to-cyan-400',
       images: [
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/11571744-aff8-42a3-ab63-79126c6d5e81.jpg',
+        'https://cdn.poehali.dev/files/ff0da5eb-5b42-4836-ae39-59dd6ee0ed96.jpg',
+        'https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg',
       ],
       description: 'Особенные моменты нашей жизни',
     },
@@ -34,7 +35,8 @@ const Index = () => {
       icon: 'Calendar',
       color: 'bg-gradient-to-br from-accent to-yellow-300',
       images: [
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/3ba6db6c-f8d1-40cd-9627-610516de245f.jpg',
+        'https://cdn.poehali.dev/files/07c6ea3c-6600-4d7b-a1de-308745ae5d2d.jpg',
+        'https://cdn.poehali.dev/files/31f1fc5c-4544-4760-88b2-8aa754398233.jpg',
       ],
       description: 'Важные даты и праздники',
     },
@@ -43,9 +45,7 @@ const Index = () => {
       title: 'Хобби',
       icon: 'Palette',
       color: 'bg-gradient-to-br from-purple-400 to-indigo-400',
-      images: [
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/ce16db62-8186-46a6-af0b-6f6e8db67186.jpg',
-      ],
+      images: [],
       description: 'Наши увлечения и творчество',
     },
     {
@@ -53,9 +53,7 @@ const Index = () => {
       title: 'Свадьба',
       icon: 'Sparkles',
       color: 'bg-gradient-to-br from-pink-300 to-rose-400',
-      images: [
-        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/3ba6db6c-f8d1-40cd-9627-610516de245f.jpg',
-      ],
+      images: [],
       description: 'Самый важный день в нашей жизни',
     },
   ];
