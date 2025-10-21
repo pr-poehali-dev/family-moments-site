@@ -1,12 +1,186 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import Icon from '@/components/ui/icon';
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState<string | null>(null);
+
+  const sections = [
+    {
+      id: 'travel',
+      title: 'Путешествия',
+      icon: 'Plane',
+      color: 'bg-gradient-to-br from-primary to-pink-400',
+      images: [
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/11571744-aff8-42a3-ab63-79126c6d5e81.jpg',
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/ce16db62-8186-46a6-af0b-6f6e8db67186.jpg',
+      ],
+      description: 'Наши приключения по всему миру',
+    },
+    {
+      id: 'memories',
+      title: 'Воспоминания',
+      icon: 'Heart',
+      color: 'bg-gradient-to-br from-secondary to-cyan-400',
+      images: [
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/11571744-aff8-42a3-ab63-79126c6d5e81.jpg',
+      ],
+      description: 'Особенные моменты нашей жизни',
+    },
+    {
+      id: 'events',
+      title: 'События',
+      icon: 'Calendar',
+      color: 'bg-gradient-to-br from-accent to-yellow-300',
+      images: [
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/3ba6db6c-f8d1-40cd-9627-610516de245f.jpg',
+      ],
+      description: 'Важные даты и праздники',
+    },
+    {
+      id: 'hobbies',
+      title: 'Хобби',
+      icon: 'Palette',
+      color: 'bg-gradient-to-br from-purple-400 to-indigo-400',
+      images: [
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/ce16db62-8186-46a6-af0b-6f6e8db67186.jpg',
+      ],
+      description: 'Наши увлечения и творчество',
+    },
+    {
+      id: 'wedding',
+      title: 'Свадьба',
+      icon: 'Sparkles',
+      color: 'bg-gradient-to-br from-pink-300 to-rose-400',
+      images: [
+        'https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/3ba6db6c-f8d1-40cd-9627-610516de245f.jpg',
+      ],
+      description: 'Самый важный день в нашей жизни',
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-background via-accent/10 to-secondary/10">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <h1 className="text-2xl md:text-3xl font-heading font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Наша Семья
+          </h1>
+          <nav className="hidden md:flex gap-6">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => {
+                  const element = document.getElementById(section.id);
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              >
+                {section.title}
+              </button>
+            ))}
+          </nav>
+          <Button variant="ghost" className="md:hidden">
+            <Icon name="Menu" size={24} />
+          </Button>
+        </div>
+      </header>
+
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20" />
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/2f33320d-7199-4d1a-b2fe-f1ee9246c985/files/11571744-aff8-42a3-ab63-79126c6d5e81.jpg')] bg-cover bg-center opacity-20" />
+        
+        <div className="relative z-10 text-center px-4 animate-fade-in">
+          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Наша История
+          </h2>
+          <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto">
+            Запечатлённые моменты любви, счастья и приключений
+          </p>
+          <Button
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            onClick={() => {
+              const element = document.getElementById('travel');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            Начать путешествие
+            <Icon name="ArrowDown" size={20} className="ml-2" />
+          </Button>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="grid gap-12">
+            {sections.map((section, index) => (
+              <div
+                key={section.id}
+                id={section.id}
+                className="scroll-mt-20 animate-slide-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-center mb-8">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${section.color} mb-4 animate-scale-in`}>
+                    <Icon name={section.icon as any} size={32} className="text-white" />
+                  </div>
+                  <h3 className="text-4xl font-heading font-bold mb-2">{section.title}</h3>
+                  <p className="text-lg text-foreground/70">{section.description}</p>
+                </div>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {section.images.map((image, imgIndex) => (
+                    <Card
+                      key={imgIndex}
+                      className="group overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+                      onClick={() => setActiveSection(section.id)}
+                    >
+                      <CardContent className="p-0 relative">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={image}
+                            alt={`${section.title} ${imgIndex + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                          <div className="text-white">
+                            <p className="font-heading font-semibold text-lg">Смотреть больше</p>
+                            <Icon name="Plus" size={24} className="mt-2" />
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+
+                  <Card className="group border-2 border-dashed border-primary/30 hover:border-primary/60 transition-all duration-300 cursor-pointer hover:shadow-lg">
+                    <CardContent className="p-0 aspect-[4/3] flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                          <Icon name="Plus" size={32} className="text-primary" />
+                        </div>
+                        <p className="text-foreground/60 font-medium">Добавить фото</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-foreground/5 border-t border-border py-12 mt-20">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Icon name="Heart" size={24} className="text-primary fill-primary animate-pulse" />
+            <p className="text-lg font-heading font-semibold">Создано с любовью</p>
+          </div>
+          <p className="text-foreground/60">© 2025 Наша Семья. Все воспоминания бесценны.</p>
+        </div>
+      </footer>
     </div>
   );
 };
