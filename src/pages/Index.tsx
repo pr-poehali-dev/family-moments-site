@@ -87,19 +87,19 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative h-screen flex items-end justify-center overflow-hidden pb-20">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      <section className="relative h-screen flex items-end justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         <img 
           src="https://cdn.poehali.dev/files/8c364452-97bb-4346-8a1d-2e150dc879ae.jpg" 
           alt="Hero" 
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         
-        <div className="relative z-10 text-center px-4 animate-fade-in">
-          <h2 className="text-5xl md:text-7xl font-heading font-bold mb-6 text-white drop-shadow-2xl">
+        <div className="relative z-10 text-center px-4 pb-12 md:pb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold mb-4 text-white drop-shadow-2xl">
             Наша История
           </h2>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg">
+          <p className="text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto drop-shadow-lg">
             Запечатлённые моменты любви, счастья и приключений
           </p>
           <Button
